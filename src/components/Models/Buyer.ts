@@ -31,7 +31,7 @@ export class Buyer {
         this.address = '';
     }
 
-    validate(): Record<keyof IBuyer, string> | null {
+    validate(): Partial<Record<keyof IBuyer, string>> {
         const errors: Record<string, string> = {};
 
         if (!this.payment) {
