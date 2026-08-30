@@ -1,6 +1,6 @@
 // Покупатель
 
-import { IBuyer, TPayment } from '../../types';
+import { IBuyer, TPayment, BuyerErrors } from '../../types';
 
 export class Buyer {
     private payment: TPayment = '';
@@ -31,8 +31,8 @@ export class Buyer {
         this.address = '';
     }
 
-    validate(): Partial<Record<keyof IBuyer, string>> {
-        const errors: Record<string, string> = {};
+    validate(): BuyerErrors {
+        const errors: BuyerErrors = {};
 
         if (!this.payment) {
             errors.payment = 'Не выбран вид оплаты';
@@ -47,6 +47,6 @@ export class Buyer {
             errors.phone = 'Укажите телефон';
         }
 
-        return Object.keys(errors).length > 0 ? (errors as Record<keyof IBuyer, string>) : null;
+        return errors;
     }
 }

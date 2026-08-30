@@ -73,6 +73,7 @@ console.log('После обновления телефона:', buyer.getData()
 
 // Валидация с ошибками
 buyer.clear();
+console.log('После очистки данных покупателя:', buyer.getData());
 const errors = buyer.validate();
 console.log('Ошибки валидации (пустые данные):', errors);
 

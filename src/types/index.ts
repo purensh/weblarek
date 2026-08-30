@@ -23,6 +23,8 @@ export interface IBuyer {
     address: string;
 }
 
+export type BuyerErrors = Partial<Record<keyof IBuyer, string>>;
+
 export interface IProductsResponse {
     total: number;
     items: IProduct[];
